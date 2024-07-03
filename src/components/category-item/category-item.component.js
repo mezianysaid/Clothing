@@ -1,21 +1,33 @@
 import React from "react";
-import { Box, Button } from "@mui/material";
+import { Box, Button, Card } from "@mui/material";
 import "./category-item.styles.scss";
 const CategoryItem = ({ category }) => {
   const { title, imageUrl } = category;
   return (
-    <Box className="category-container">
+    <Card className="category-container">
       <Box
         className="background-image"
         style={{
           backgroundImage: `url(${imageUrl})`,
         }}
       />
-      <Box className="category-body-container">
+
+      <Card className="category-body-container">
         <h2>{title}</h2>
-        <Button variant="outlined">Shop now</Button>
-      </Box>
-    </Box>
+        <Button
+          variant="outlined"
+          style={{
+            color: "black",
+            borderColor: "black",
+            fontFamily: "-moz-initial",
+            fontWeight: 400,
+          }}
+          className="btnshop"
+        >
+          Shop now
+        </Button>
+      </Card>
+    </Card>
   );
 };
 
