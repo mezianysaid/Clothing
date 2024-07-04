@@ -18,14 +18,9 @@ const NavigationBar = () => {
               <Box className="links">Shop</Box>
             </Button>
           </Link>
-          <Link className="nav-link" to="/sign-in">
+          <Link className="nav-link" to="/authentification">
             <Button variant="outlined" className="links">
               Sign In
-            </Button>
-          </Link>
-          <Link className="nav-link" to="/shop">
-            <Button variant="outlined" className="links">
-              Sign up
             </Button>
           </Link>
         </Box>
