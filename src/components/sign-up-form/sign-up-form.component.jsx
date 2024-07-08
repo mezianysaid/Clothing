@@ -1,10 +1,11 @@
 import { Box, Button, Card, TextField, Divider, Grid } from "@mui/material";
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import {
   createAuthUserWithEmailAndPassword,
   createUserDocumentFromAuth,
 } from "../../utils/firebase/firebase.utils";
 import "./sign-up.styles.scss";
+import { UserContext } from "../../contexts/user.context";
 
 const defaultFormFields = {
   displayName: "",
@@ -16,7 +17,8 @@ const defaultFormFields = {
 const SignUpForm = () => {
   const [formFields, setFormFields] = useState(defaultFormFields);
   const { displayName, email, password, confirmPassword } = formFields;
-
+  const { currentUser } = useContext(UserContext);
+  console.log("hit", currentUser ? currentUser.email : null);
   const handleSubmit = async (event) => {
     event.preventDefault();
 
@@ -29,6 +31,7 @@ const SignUpForm = () => {
           email,
           password
         );
+        // setCurrentUser(user);
         await createUserDocumentFromAuth(user, { displayName });
         setFormFields(defaultFormFields);
         alert("the user created successfully >>");
