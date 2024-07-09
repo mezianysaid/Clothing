@@ -1,0 +1,35 @@
+.checkout-container {
+  width: 60%;
+  margin-left: 20%;
+
+  .header {
+    display: flex;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+    justify-items: center;
+  }
+  .header-block {
+    font-style: italic;
+    font-weight: 600;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    align-items: center;
+    align-content: center;
+    align-self: center;
+  }
+  .total-box {
+    font-style: italic;
+    font-weight: 600;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    justify-content: flex-end;
+    .total {
+      min-width: 100px;
+      height: 40px;
+      display: flex;
+      justify-content: flex-end;
+      padding-right: 2px;
+    }
+  }
+}
