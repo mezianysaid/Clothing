@@ -1,10 +1,15 @@
 import React from "react";
 import { Box, Button, Card } from "@mui/material";
-import "./category-item.styles.scss";
-const CategoryItem = ({ category }) => {
-  const { title, imageUrl } = category;
+import { useNavigate } from "react-router-dom";
+import "./directory-item.styles.scss";
+const DirectoryItem = ({ category }) => {
+  const { title, imageUrl, route } = category;
+  const navigate = useNavigate();
+  const navigateTo = () => {
+    navigate(route);
+  };
   return (
-    <Card className="category-container">
+    <Card className="directory-container">
       <Box
         className="background-image"
         style={{
@@ -12,7 +17,7 @@ const CategoryItem = ({ category }) => {
         }}
       />
 
-      <Card className="category-body-container">
+      <Card className="directory-body-container">
         <h2>{title}</h2>
         <Button
           variant="outlined"
@@ -23,6 +28,7 @@ const CategoryItem = ({ category }) => {
             fontWeight: 400,
           }}
           className="btnshop"
+          onClick={navigateTo}
         >
           Shop now
         </Button>
@@ -31,4 +37,4 @@ const CategoryItem = ({ category }) => {
   );
 };
 
-export default CategoryItem;
+export default DirectoryItem;

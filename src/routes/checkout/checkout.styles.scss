@@ -4,19 +4,15 @@
 
   .header {
     display: flex;
-    align-items: center;
-    align-content: center;
     justify-content: center;
-    justify-items: center;
+    align-items: center;
+    height: 60px;
+    padding-inline: 10px;
   }
   .header-block {
     font-style: italic;
     font-weight: 600;
     font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-    display: flex;
-    align-items: center;
-    align-content: center;
-    align-self: center;
   }
   .total-box {
     font-style: italic;
@@ -28,8 +24,10 @@
       min-width: 100px;
       height: 40px;
       display: flex;
-      justify-content: flex-end;
+      justify-content: center;
+      align-items: center;
       padding-right: 2px;
+      background-color: rgb(214, 153, 153);
     }
   }
 }

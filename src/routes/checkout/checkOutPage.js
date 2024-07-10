@@ -9,7 +9,7 @@ const CheckOutPage = () => {
   const { cartItems, cartTotal } = useContext(CartContext);
   return (
     <Box className="checkout-container">
-      <Box className="header">
+      <Card className="header">
         <Grid
           className="checkout-header"
           container
@@ -32,8 +32,8 @@ const CheckOutPage = () => {
           </Grid>
         </Grid>
         <Divider />
-      </Box>
-      <Box sx={{ mt: 3 }}>
+      </Card>
+      <Box sx={{ mt: 1 }}>
         {cartItems.map((item) => (
           <CheckOutCard item={item} key={item.id} />
         ))}

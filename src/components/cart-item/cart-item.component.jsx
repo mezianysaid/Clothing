@@ -1,10 +1,10 @@
 import React from "react";
 import "./cart-item.styles.scss";
-import { Box, Card } from "@mui/material";
+import { Box } from "@mui/material";
 const CartItem = ({ cartItem }) => {
   const { name, imageUrl, price, quantity } = cartItem;
   return (
-    <Card className="cart-item-container">
+    <Box className="cart-item-container">
       <img src={imageUrl} alt={`${name}`} />
       <Box className="item-details">
         <span className="name">{name}</span>
@@ -12,7 +12,7 @@ const CartItem = ({ cartItem }) => {
           {quantity} *{price}$
         </span>
       </Box>
-    </Card>
+    </Box>
   );
 };
 

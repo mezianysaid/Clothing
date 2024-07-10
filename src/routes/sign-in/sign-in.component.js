@@ -1,9 +1,7 @@
-import { Box, Button, Card, TextField, Divider, Grid } from "@mui/material";
+import { Box, Button, Card, TextField, Divider } from "@mui/material";
 import React, { useState } from "react";
 import {
   signInWithGooglePopup,
-  createUserDocumentFromAuth,
-  signInWithGoogleRedirect,
   signInUserWithEmailAndPassword,
 } from "../../utils/firebase/firebase.utils";
 

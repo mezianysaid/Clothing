@@ -1,5 +1,5 @@
-import { Box, Button, Card, TextField, Divider, Grid } from "@mui/material";
-import React, { useState } from "react";
+import { Box, Grid } from "@mui/material";
+import React from "react";
 import SignIn from "../sign-in/sign-in.component";
 import SignUpForm from "../../components/sign-up-form/sign-up-form.component";
 import "./auth.styles.scss";

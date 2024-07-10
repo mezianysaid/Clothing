@@ -1,9 +1,10 @@
 import React, { useContext } from "react";
-import { Box, Button, Card, Grid, IconButton } from "@mui/material";
+import { Card, Grid, IconButton } from "@mui/material";
 
 import { AddCircle, RemoveCircle, DeleteForever } from "@mui/icons-material";
 import { CartContext } from "../../contexts/cart.context";
 import "./checkout-card.styles.scss";
+
 const CheckOutCard = ({ item }) => {
   const { id, name, imageUrl, quantity, price } = item;
   const { addItemToCart, DecrementItemFromCart, clearItemFromCart } =
@@ -35,8 +36,8 @@ const CheckOutCard = ({ item }) => {
             <AddCircle fontSize="inherit" />
           </IconButton>
         </Grid>
-        <Grid className="header-block">
-          <span>{price}</span>
+        <Grid className="header-block" sx={{ color: "red" }}>
+          <span>{price}$</span>
         </Grid>
         <Grid className="header-block">
           <IconButton aria-label="delete" size="medium" onClick={ClearItem}>

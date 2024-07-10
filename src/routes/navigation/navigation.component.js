@@ -1,4 +1,4 @@
-import { Box, Button } from "@mui/material";
+import { Box, Button, Card } from "@mui/material";
 import React, { Fragment, useContext } from "react";
 import { Link, Outlet } from "react-router-dom";
 import { ReactComponent as CrwnLogo } from "../../assets/crown.svg";
@@ -14,7 +14,7 @@ const NavigationBar = () => {
   const { isCartOpen } = useContext(CartContext);
   return (
     <Fragment>
-      <Box className="navigation">
+      <Card className="navigation" elevation={6}>
         <Link className="logo-container" to="/">
           <Box>
             <CrwnLogo className="logo" />
@@ -42,7 +42,7 @@ const NavigationBar = () => {
           {/* </Button> */}
         </Box>
         {isCartOpen && <CartDropdown />}
-      </Box>
+      </Card>
       {/* where the wholle app will be store */}
       <Outlet />
     </Fragment>

@@ -1,4 +1,4 @@
-import { Box, Button, Card } from "@mui/material";
+import { Box, Button } from "@mui/material";
 import React, { useContext } from "react";
 import "./product-card.styles.scss";
 import { CartContext } from "../../contexts/cart.context";
@@ -26,7 +26,6 @@ const ProductCard = ({ product }) => {
         className="btn"
         variant="contained"
         color="secondary"
-        buttonType="inverted"
         onClick={addProductToCart}
       >
         Add to card

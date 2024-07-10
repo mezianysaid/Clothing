@@ -1,4 +1,4 @@
-import { Box, Button, Card, TextField, Divider, Grid } from "@mui/material";
+import { Box, Button, Card, TextField, Divider } from "@mui/material";
 import React, { useState, useContext } from "react";
 import {
   createAuthUserWithEmailAndPassword,
@@ -18,11 +18,11 @@ const SignUpForm = () => {
   const [formFields, setFormFields] = useState(defaultFormFields);
   const { displayName, email, password, confirmPassword } = formFields;
   const { currentUser } = useContext(UserContext);
-  console.log("hit", currentUser ? currentUser.email : null);
+
   const handleSubmit = async (event) => {
     event.preventDefault();
 
-    if (password != confirmPassword) {
+    if (password !== confirmPassword) {
       alert("the passwords do not match!!");
       return;
     } else {

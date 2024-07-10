@@ -13,11 +13,18 @@ const CartDropdown = () => {
   return (
     <Card className="cart-dropdown-container">
       <Box className="cart-items">
-        {cartItems.map((item) => (
-          <CartItem key={item.id} cartItem={item} />
-        ))}
+        {cartItems.length ? (
+          cartItems.map((item) => (
+            <Box>
+              <CartItem key={item.id} cartItem={item} />
+              <Divider />
+            </Box>
+          ))
+        ) : (
+          <span style={{ padding: 10, color: "gray" }}>Your cart is empty</span>
+        )}
       </Box>
-      <Button variant="contained" onClick={goToCheckoutPage}>
+      <Button className="button" variant="contained" onClick={goToCheckoutPage}>
         go to checkout
       </Button>
     </Card>
