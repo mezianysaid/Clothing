@@ -15,7 +15,7 @@ const CartDropdown = () => {
       <Box className="cart-items">
         {cartItems.length ? (
           cartItems.map((item) => (
-            <Box>
+            <Box key={item.id}>
               <CartItem key={item.id} cartItem={item} />
               <Divider />
             </Box>
