@@ -47,8 +47,8 @@ const SignIn = () => {
       <Card
         elevation={8}
         sx={{
-          marginTop: 5,
-          width: "80%",
+          marginTop: 2,
+          width: { lg: "80%", md: "80%", sm: "98%", xs: "98%" },
           borderTopLeftRadius: 40,
           borderBottomRightRadius: 40,
         }}

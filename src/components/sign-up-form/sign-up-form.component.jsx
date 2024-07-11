@@ -49,12 +49,12 @@ const SignUpForm = () => {
     // console.log(formFields);
   };
   return (
-    <Box>
+    <>
       <Card
         elevation={8}
         sx={{
-          marginTop: 5,
-          width: "80%",
+          marginTop: 2,
+          width: { lg: "80%", md: "80%", sm: "98%", xs: "98%" },
           borderTopRightRadius: 40,
           borderBottomLeftRadius: 40,
         }}
@@ -146,7 +146,7 @@ const SignUpForm = () => {
           </Box>
         </Box>
       </Card>
-    </Box>
+    </>
   );
 };
 
