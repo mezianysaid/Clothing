@@ -1,18 +1,29 @@
-import React, { useContext } from "react";
-import { Card, Grid, IconButton } from "@mui/material";
+import React from "react";
+import { useDispatch, useSelector } from "react-redux";
 
+import { Card, Grid, IconButton } from "@mui/material";
 import { AddCircle, RemoveCircle, DeleteForever } from "@mui/icons-material";
-import { CartContext } from "../../contexts/cart.context";
+
+import {
+  addItemToCart,
+  DecrementItemFromCart,
+  removeItemFromCart,
+} from "../../store/cart/cart.action";
+import { selectCartItems } from "../../store/cart/cart.selector";
+
 import "./checkout-card.styles.scss";
 
 const CheckOutCard = ({ item }) => {
   const { id, name, imageUrl, quantity, price } = item;
-  const { addItemToCart, DecrementItemFromCart, clearItemFromCart } =
-    useContext(CartContext);
+  const dispatch = useDispatch();
+  const cartItems = useSelector(selectCartItems);
 
-  const decrementItem = () => DecrementItemFromCart(item);
-  const incrementItem = () => addItemToCart(item);
-  const ClearItem = () => clearItemFromCart(item);
+  // const { addItemToCart, DecrementItemFromCart, clearItemFromCart } =
+  //   useContext(CartContext);
+
+  const decrementItem = () => dispatch(DecrementItemFromCart(cartItems, item));
+  const incrementItem = () => dispatch(addItemToCart(cartItems, item));
+  const ClearItem = () => dispatch(removeItemFromCart(cartItems, item));
   return (
     <Card key={id} className="card-container">
       <Grid

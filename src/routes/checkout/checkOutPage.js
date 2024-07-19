@@ -1,12 +1,18 @@
-import React, { useContext } from "react";
-import { CartContext } from "../../contexts/cart.context";
+import React from "react";
+import { useSelector } from "react-redux";
+import {
+  selectCartTotal,
+  selectCartItems,
+} from "../../store/cart/cart.selector";
 import "./checkout.styles.scss";
 import { Box, Card, Divider, Grid } from "@mui/material";
 // import DeleteIcon from "@mui/icons-material/Delete";
 import CheckOutCard from "../../components/checkout-card/checkout-card.component";
 
 const CheckOutPage = () => {
-  const { cartItems, cartTotal } = useContext(CartContext);
+  // const { cartItems, cartTotal } = useContext(CartContext);
+  const cartItems = useSelector(selectCartItems);
+  const cartTotal = useSelector(selectCartTotal);
   return (
     <Box
       className="checkout-container"

@@ -67,3 +67,4 @@ const cartReducer = (state, action) => {
 // const [{isCartOpen,cartItems,cartCount,cartTotal},dispatch]=useReducer(cartReducer,INITIAL_CART_STATE)
 
 //reduc-logger
+// redux-persist reselect

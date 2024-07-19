@@ -4,14 +4,17 @@ import { useParams } from "react-router-dom";
 import { useSelector } from "react-redux";
 
 import { selectCategoriesMap } from "../../store/categories/category.selector";
+import { selectCategoriesIsLoading } from "../../store/categories/category.selector";
 
 import { Box, Grid, Card } from "@mui/material";
 import ProductCard from "../../components/product-card/product-card.component";
+import Spinner from "../../components/spinner/spinner.component";
 
 const Category = () => {
   const { category } = useParams();
   const categoriesMap = useSelector(selectCategoriesMap);
-  // const { categoriesMap } = useContext(CategoriesContext);
+  const isLoading = useSelector(selectCategoriesIsLoading);
+
   const [products, setProducts] = useState(categoriesMap[category]);
 
   useEffect(() => {
@@ -38,28 +41,33 @@ const Category = () => {
       >
         <h2>{category && category.toUpperCase()}</h2>
       </Card>
-      <Box sx={{ padding: 2 }}>
-        <Grid
-          container
-          rowGap={5}
-          style={{ flexWrap: "wrap", justifyContent: "center" }}
-        >
-          {products &&
-            products.map((product) => (
-              <Grid
-                item={true}
-                lg={3}
-                md={4}
-                sm={6}
-                xs={12}
-                style={{ height: 350 }}
-                key={product.id}
-              >
-                <ProductCard key={product.id} product={product} />
-              </Grid>
-            ))}
-        </Grid>
-      </Box>
+
+      {isLoading ? (
+        <Spinner />
+      ) : (
+        <Box sx={{ padding: 2 }}>
+          <Grid
+            container
+            rowGap={5}
+            style={{ flexWrap: "wrap", justifyContent: "center" }}
+          >
+            {products &&
+              products.map((product) => (
+                <Grid
+                  item={true}
+                  lg={3}
+                  md={4}
+                  sm={6}
+                  xs={12}
+                  style={{ height: 350 }}
+                  key={product.id}
+                >
+                  <ProductCard key={product.id} product={product} />
+                </Grid>
+              ))}
+          </Grid>
+        </Box>
+      )}
     </Box>
   );
 };

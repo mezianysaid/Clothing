@@ -1,11 +1,18 @@
-import React, { useContext } from "react";
+import React from "react";
 import { useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
+
 import "./cart-dropdown.styles.scss";
 import { Box, Button, Card, Divider } from "@mui/material";
 import CartItem from "../cart-item/cart-item.component";
-import { CartContext } from "../../contexts/cart.context";
+// import Spinner from "../spinner/spinner.component";
+import { selectCartItems } from "../../store/cart/cart.selector";
+// import { CartContext } from "../../contexts/cart.context";
+
 const CartDropdown = () => {
-  const { cartItems } = useContext(CartContext);
+  // const { cartItems } = useContext(CartContext);
+  const cartItems = useSelector(selectCartItems);
+
   const navigate = useNavigate();
   const goToCheckoutPage = () => {
     navigate("/checkout");
@@ -21,10 +28,23 @@ const CartDropdown = () => {
             </Box>
           ))
         ) : (
-          <span style={{ padding: 10, color: "gray" }}>Your cart is empty</span>
+          <Box
+            sx={{
+              display: "flex",
+              justifyContent: "center",
+              pt: 10,
+            }}
+          >
+            <span style={{ color: "gray" }}>Your cart is empty</span>
+          </Box>
         )}
       </Box>
-      <Button className="button" variant="contained" onClick={goToCheckoutPage}>
+      <Button
+        className="button"
+        // variant="contained"
+        // color="inherit"
+        onClick={goToCheckoutPage}
+      >
         go to checkout
       </Button>
     </Card>
