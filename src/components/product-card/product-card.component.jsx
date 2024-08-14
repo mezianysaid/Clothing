@@ -1,8 +1,8 @@
 import { Box, Button } from "@mui/material";
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { addItemToCart } from "../../store/cart/cart.action";
-import { selectCartItems } from "../../store/cart/cart.selector";
+import { addItemToCart } from "../../store/cart/cart.reducer";
+// import { selectCartItems } from "../../store/cart/cart.selector";
 import "./product-card.styles.scss";
 // import { CartContext } from "../../contexts/cart.context";
 
@@ -10,8 +10,8 @@ const ProductCard = ({ product }) => {
   const dispatch = useDispatch();
   const { name, price, imageUrl } = product;
   // const { addItemToCart } = useContext(CartContext);
-  const cartItems = useSelector(selectCartItems);
-  const addProductToCart = () => dispatch(addItemToCart(cartItems, product));
+  // const cartItems = useSelector(selectCartItems);
+  const addProductToCart = () => dispatch(addItemToCart(product));
   return (
     <Box className="container-card">
       {/* <Card className="container-cardkmn"> */}

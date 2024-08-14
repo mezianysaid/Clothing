@@ -1,29 +1,29 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 
-import { Card, Grid, IconButton } from "@mui/material";
+import { Box, Card, Grid, IconButton } from "@mui/material";
 import { AddCircle, RemoveCircle, DeleteForever } from "@mui/icons-material";
-
+import PaymentForm from "../payment-form/payment-form.component";
 import {
   addItemToCart,
   DecrementItemFromCart,
   removeItemFromCart,
-} from "../../store/cart/cart.action";
-import { selectCartItems } from "../../store/cart/cart.selector";
+} from "../../store/cart/cart.reducer";
+// import { selectCartItems } from "../../store/cart/cart.selector";
 
 import "./checkout-card.styles.scss";
 
 const CheckOutCard = ({ item }) => {
   const { id, name, imageUrl, quantity, price } = item;
   const dispatch = useDispatch();
-  const cartItems = useSelector(selectCartItems);
+  // const cartItems = useSelector(selectCartItems);
 
   // const { addItemToCart, DecrementItemFromCart, clearItemFromCart } =
   //   useContext(CartContext);
 
-  const decrementItem = () => dispatch(DecrementItemFromCart(cartItems, item));
-  const incrementItem = () => dispatch(addItemToCart(cartItems, item));
-  const ClearItem = () => dispatch(removeItemFromCart(cartItems, item));
+  const decrementItem = () => dispatch(DecrementItemFromCart(item));
+  const incrementItem = () => dispatch(addItemToCart(item));
+  const ClearItem = () => dispatch(removeItemFromCart(item));
   return (
     <Card key={id} className="card-container">
       <Grid

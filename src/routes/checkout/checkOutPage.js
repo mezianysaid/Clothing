@@ -8,7 +8,7 @@ import "./checkout.styles.scss";
 import { Box, Card, Divider, Grid } from "@mui/material";
 // import DeleteIcon from "@mui/icons-material/Delete";
 import CheckOutCard from "../../components/checkout-card/checkout-card.component";
-
+import PaymentForm from "../../components/payment-form/payment-form.component";
 const CheckOutPage = () => {
   // const { cartItems, cartTotal } = useContext(CartContext);
   const cartItems = useSelector(selectCartItems);
@@ -60,6 +60,8 @@ const CheckOutPage = () => {
           <span>Total : {cartTotal}$</span>
         </Card>
       </Box>
+
+      <PaymentForm />
     </Box>
   );
 };

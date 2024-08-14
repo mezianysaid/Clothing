@@ -23,7 +23,7 @@ const SignIn = () => {
     try {
       const { user } = await signInUserWithEmailAndPassword(email, password);
       setFormFields(defaultFormFields);
-      alert("Sign in successfully!!");
+      alert("Sign in successfully!!", user.email);
     } catch (error) {
       switch (error.code) {
         case "auth/invalid-credential":

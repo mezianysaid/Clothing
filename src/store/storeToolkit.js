@@ -1,11 +1,9 @@
-import { compose, createStore, applyMiddleware } from "redux";
+import { configureStore } from "@reduxjs/toolkit";
 import { persistStore, persistReducer } from "redux-persist";
 import storage from "redux-persist/lib/storage";
 import { rootReducer } from "./root-reducer";
 import logger from "redux-logger";
 import { thunk } from "redux-thunk";
-// import createSagaMiddleware from "redux-saga";
-// import { rootSaga } from "./root-saga";
 
 // redux-persist used for saving the data in local storage on yr browser
 const persistConfig = {
@@ -16,19 +14,17 @@ const persistConfig = {
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);
 
-// const sagaMiddleware = createSagaMiddleware();
-
 const middlewares = [
   process.env.NODE_ENV !== "production" && logger,
   thunk,
 ].filter(Boolean);
 
-const composeEnhancer =
-  (process.env.NODE_ENV !== "production" &&
-    window &&
-    window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__) ||
-  compose;
-const composeEnhances = composeEnhancer(applyMiddleware(...middlewares));
-export const store = createStore(persistedReducer, undefined, composeEnhances);
-// sagaMiddleware.run(rootSaga);
+export const store = configureStore({
+  reducer: persistedReducer,
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware({
+      serializableCheck: false,
+    }).concat(middlewares),
+});
+
 export const persistor = persistStore(store);

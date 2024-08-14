@@ -1,0 +1,18 @@
+.paymentBox {
+  .payBtn {
+    background-color: black;
+    color: aliceblue;
+    margin-top: 20px;
+    display: flex;
+    justify-self: end;
+    width: 100px;
+    &:hover {
+      background-color: rgb(130, 128, 128);
+      color: rgb(252, 252, 253);
+    }
+  }
+
+  .cardEl {
+    height: 20px;
+  }
+}

@@ -31,7 +31,7 @@ const firebaseConfig = {
 };
 
 // Initialize Firebase
-const firebaseApp = initializeApp(firebaseConfig);
+const app = initializeApp(firebaseConfig);
 
 const provider = new GoogleAuthProvider();
 provider.setCustomParameters({
@@ -43,7 +43,7 @@ export const signInWithGooglePopup = () => signInWithPopup(auth, provider);
 export const signInWithGoogleRedirect = () =>
   signInWithRedirect(auth, provider);
 // access to the database
-export const db = getFirestore();
+export const db = getFirestore(app);
 
 // Adding collection to a document on db
 export const addCollectionAndDocument = async (collectionKey, objectsToAdd) => {
@@ -58,8 +58,8 @@ export const addCollectionAndDocument = async (collectionKey, objectsToAdd) => {
   console.log("done");
 };
 // GET PRODUCTS FROM FIRESTORE
-export const getCategoriesAndDocuments = async () => {
-  const collectionRef = collection(db, "categoriesds");
+export const getCategoriesAndDocuments = async (doc) => {
+  const collectionRef = collection(db, doc);
   const q = query(collectionRef);
 
   const querySnapshot = await getDocs(q);
