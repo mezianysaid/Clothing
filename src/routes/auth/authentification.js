@@ -13,7 +13,8 @@ const Authentification = () => {
           sm={12}
           md={6}
           lg={6}
-          sx={{ display: "flex", justifyContent: "center" }}
+          sx={{ display: "flex", justifyContent: "end" }}
+          pr={1}
         >
           <SignIn />
         </Grid>
@@ -23,7 +24,7 @@ const Authentification = () => {
           sm={12}
           md={6}
           lg={6}
-          sx={{ display: "flex", justifyContent: "center" }}
+          sx={{ display: "flex", justifyContent: "start" }}
         >
           <SignUpForm />
         </Grid>

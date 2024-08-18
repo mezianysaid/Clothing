@@ -17,8 +17,11 @@ const defaultFormFields = {
 const SignUpForm = () => {
   const [formFields, setFormFields] = useState(defaultFormFields);
   const { displayName, email, password, confirmPassword } = formFields;
+  const [isAppear, setIsAppear] = useState(true);
   // const { currentUser } = useContext(UserContext);
-
+  const showSignUPForm = () => {
+    setIsAppear(false);
+  };
   const handleSubmit = async (event) => {
     event.preventDefault();
 
@@ -48,6 +51,25 @@ const SignUpForm = () => {
     setFormFields({ ...formFields, [name]: value });
     // console.log(formFields);
   };
+  const SignUpLandView = () => {
+    return (
+      <Box
+        sx={{
+          borderTopRightRadius: 40,
+          borderBottomLeftRadius: 40,
+        }}
+        className="signUpLandView"
+      >
+        <Button
+          variant="contained"
+          className="signupBtn"
+          onClick={showSignUPForm}
+        >
+          Sign Up
+        </Button>
+      </Box>
+    );
+  };
   return (
     <>
       <Card
@@ -57,94 +79,100 @@ const SignUpForm = () => {
           width: { lg: "80%", md: "80%", sm: "98%", xs: "98%" },
           borderTopRightRadius: 40,
           borderBottomLeftRadius: 40,
+          mb: 10,
         }}
       >
-        <h2 style={{ margin: 14, color: "#4dd8b8", fontFamily: "cursive" }}>
-          I Don't have an account :
-        </h2>
-        <p style={{ color: "grey", padding: 2, marginBottom: 0 }}>
+        {isAppear ? (
+          <SignUpLandView />
+        ) : (
+          <Box>
+            <h2
+              style={{ margin: 14, color: "darkcyan", fontFamily: "cursive" }}
+            >
+              I Don't have an account :
+            </h2>
+            {/* <p style={{ color: "grey", padding: 2, marginBottom: 0 }}>
           Sign up with your email and password :
-        </p>
-        <Divider />
-        <Box
-          component="form"
-          sx={{
-            "& .MuiTextField-root": { m: 1, width: "100%", p: 2 },
-          }}
-          autoComplete="off"
-          onSubmit={handleSubmit}
-        >
-          <TextField
-            required
-            id="outlined-req25uired"
-            label="User Name"
-            name="displayName"
-            value={displayName}
-            placeholder="your name"
-            type="text"
-            onChange={handleChnage}
-            className="field"
-            // error
-          ></TextField>
-          <TextField
-            required
-            id="outlined-re12quired"
-            label="Email"
-            name="email"
-            value={email}
-            type="email"
-            placeholder="your email"
-            onChange={handleChnage}
-            // error
-          ></TextField>
-          <TextField
-            required
-            id="outlined-require2d"
-            label="Password"
-            name="password"
-            type="password"
-            value={password}
-            // autoComplete="current-password"
-            placeholder="your password"
-            onChange={handleChnage}
-          ></TextField>
-          <TextField
-            required
-            id="outlined-requi1224red"
-            label="Confirm Password"
-            type="password"
-            name="confirmPassword"
-            value={confirmPassword}
-            // autoComplete="current-password"
-            placeholder="confirm your password"
-            onChange={handleChnage}
-          ></TextField>
-          <Box
-            sx={{
-              padding: 2,
-              display: "flex",
-              justifyContent: "flex-end",
-            }}
-          >
-            <Button
-              type="cancel"
-              variant="outlined"
-              sx={{ color: "#4dd8b8" }}
-              onClick={() => {
-                setFormFields(defaultFormFields);
+        </p> */}
+            <Divider />
+            <Box
+              component="form"
+              sx={{
+                "& .MuiTextField-root": { mt: 3, width: "100%", p: 2 },
               }}
+              autoComplete="off"
+              onSubmit={handleSubmit}
+              className="sigup-container"
             >
-              Cancel
-            </Button>
-            <Button
-              type="submit"
-              variant="contained"
-              sx={{ backgroundColor: "#4dd8b8" }}
-            >
-              Save
-            </Button>
+              <TextField
+                required
+                id="outlined-req25uired"
+                label="User Name"
+                name="displayName"
+                value={displayName}
+                placeholder="your name"
+                type="text"
+                onChange={handleChnage}
+                className="field"
+                // error
+              ></TextField>
+              <TextField
+                required
+                id="outlined-re12quired"
+                label="Email"
+                name="email"
+                value={email}
+                type="email"
+                placeholder="your email"
+                onChange={handleChnage}
+                // error
+              ></TextField>
+              <TextField
+                required
+                id="outlined-require2d"
+                label="Password"
+                name="password"
+                type="password"
+                value={password}
+                // autoComplete="current-password"
+                placeholder="your password"
+                onChange={handleChnage}
+              ></TextField>
+              <TextField
+                required
+                id="outlined-requi1224red"
+                label="Confirm Password"
+                type="password"
+                name="confirmPassword"
+                value={confirmPassword}
+                // autoComplete="current-password"
+                placeholder="confirm your password"
+                onChange={handleChnage}
+              ></TextField>
+              <Box
+                sx={{
+                  padding: 2,
+                  display: "flex",
+                  justifyContent: "flex-end",
+                }}
+              >
+                <Button
+                  type="cancel"
+                  variant="outlined"
+                  sx={{ color: "darkcyan" }}
+                  onClick={() => {
+                    setFormFields(defaultFormFields);
+                  }}
+                >
+                  Cancel
+                </Button>
+                <Button type="submit" variant="contained" className="signupBtn">
+                  Save
+                </Button>
+              </Box>
+            </Box>
           </Box>
-        </Box>
+        )}
       </Card>
     </>
   );

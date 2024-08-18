@@ -19,14 +19,14 @@ const NavigationBar = () => {
   const isCartOpen = useSelector(selectIsCartOpen);
   return (
     <Fragment>
-      <Card className="navigation" elevation={6}>
+      <Card className="navigationBar" elevation={6}>
         <Link className="logo-container" to="/">
           <Box>
             <CrwnLogo className="logo" />
           </Box>
         </Link>
         <Box className="nav-links-container">
-          <Link className="nav-link" to="/shop">
+          <Link className="nav-link " to="/shop">
             <Button
               size="medium"
               className="links"
@@ -37,17 +37,23 @@ const NavigationBar = () => {
             </Button>
           </Link>
           {currentUser ? (
-            <Button
-              className="links"
+            <Link
+              className="nav-link "
               variant="contained"
-              color="primary"
               onClick={signOutUser}
             >
-              Sign Out
-            </Button>
+              <Button
+                className="links"
+                variant="contained"
+                color="primary"
+                onClick={signOutUser}
+              >
+                Sign Out
+              </Button>
+            </Link>
           ) : (
             <Link
-              className="nav-link"
+              className="nav-link "
               variant="contained"
               color="primary"
               to="/authentification"

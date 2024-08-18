@@ -4,7 +4,7 @@ import {
   signInWithGooglePopup,
   signInUserWithEmailAndPassword,
 } from "../../utils/firebase/firebase.utils";
-
+import "./sign-in.styles.scss";
 const defaultFormFields = {
   email: "",
   password: "",
@@ -51,19 +51,20 @@ const SignIn = () => {
           width: { lg: "80%", md: "80%", sm: "98%", xs: "98%" },
           borderTopLeftRadius: 40,
           borderBottomRightRadius: 40,
+          mb: 10,
         }}
       >
-        <h2 style={{ margin: 14, color: "#4dd8b8", fontFamily: "cursive" }}>
+        <h2 style={{ margin: 14, color: "darkcyan", fontFamily: "cursive" }}>
           I have an account
         </h2>
-        <h5 style={{ color: "grey", padding: 2, marginBottom: 0 }}>
+        {/* <h5 style={{ color: "grey", padding: 2, marginBottom: 0 }}>
           Sign in with your email and password :
-        </h5>
+        </h5> */}
         <Divider />
         <Box
           component="form"
           sx={{
-            "& .MuiTextField-root": { m: 1, width: "100%", p: 2 },
+            "& .MuiTextField-root": { mt: 8, width: "100%", p: 2 },
           }}
           autoComplete="off"
           onSubmit={handleSubmit}
@@ -100,18 +101,14 @@ const SignIn = () => {
               alignItems: "flex-end",
               spacing: 2,
             }}
+            className="signin-container"
           >
-            <Button
-              type="submit"
-              variant="contained"
-              sx={{ backgroundColor: "#4dd8b8", marginLeft: 2 }}
-            >
+            <Button type="submit" variant="contained" className="signinBtn">
               sign in
             </Button>
             <Button
-              variant="contained"
               type="button"
-              sx={{ backgroundColor: "#4dd8b8", marginLeft: 2 }}
+              className="signinBtn"
               onClick={signInWithGoogle}
             >
               sign in with Google

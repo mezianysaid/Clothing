@@ -47,12 +47,12 @@ const CheckOutCard = ({ item }) => {
             <AddCircle fontSize="inherit" />
           </IconButton>
         </Grid>
-        <Grid className="header-block" sx={{ color: "red" }}>
-          <span>{price}$</span>
+        <Grid className="header-block">
+          <span style={{ fontWeight: "800" }}>{price}$</span>
         </Grid>
         <Grid className="header-block">
           <IconButton aria-label="delete" size="medium" onClick={ClearItem}>
-            <DeleteForever fontSize="inherit" />
+            <DeleteForever fontSize="inherit" color="error" />
           </IconButton>
         </Grid>
       </Grid>

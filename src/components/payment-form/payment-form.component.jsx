@@ -7,6 +7,7 @@ import { CardElement, useStripe, useElements } from "@stripe/react-stripe-js";
 import { Button, Box, Card, Alert, Divider } from "@mui/material";
 import CircularProgress from "@mui/material/CircularProgress";
 import "./payment-form.styles.scss";
+
 export const MYspinner = () => {
   return (
     <Box sx={{ display: "flex", justifyContent: "center" }}>
@@ -14,6 +15,7 @@ export const MYspinner = () => {
     </Box>
   );
 };
+
 const PaymentForm = () => {
   const stripe = useStripe();
   const elements = useElements();
@@ -59,7 +61,7 @@ const PaymentForm = () => {
     console.log(response);
   };
   return (
-    <Card className="paymentBox" sx={{ p: 4, m: 2 }}>
+    <Card className="paymentBox" sx={{ p: 4, marginBlock: 3 }}>
       <h3>Credit Card Payment:</h3>
       <Divider />
       <Box
@@ -68,13 +70,13 @@ const PaymentForm = () => {
         onSubmit={paymentHandler}
         autoComplete="off"
       >
-        <Box
+        {/* <Box
           sx={{
             padding: 2,
           }}
-        >
-          <CardElement />
-        </Box>
+        > */}
+        <CardElement />
+        {/* </Box> */}
         <Box
           sx={{
             padding: 2,

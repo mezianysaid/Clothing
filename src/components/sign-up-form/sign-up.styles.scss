@@ -8,3 +8,32 @@
 .field {
   border-color: aquamarine;
 }
+.sigup-container {
+  .signupBtn {
+    color: aliceblue;
+    background-color: darkcyan;
+    margin-left: 2;
+    &:hover {
+      background-color: black;
+    }
+  }
+}
+.signUpLandView {
+  display: flex;
+  align-items: center;
+  justify-items: center;
+  justify-content: center;
+  background-image: url("../../assets/p3.jpg");
+  width: 100%;
+  height: 100%;
+  .signupBtn {
+    color: aliceblue;
+    background-color: darkcyan;
+    width: 200px;
+    border-bottom-right-radius: 20px;
+    border-top-right-radius: 20px;
+    &:hover {
+      background-color: black;
+    }
+  }
+}

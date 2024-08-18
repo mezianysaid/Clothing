@@ -5,11 +5,16 @@ import "./directory-item.styles.scss";
 const DirectoryItem = ({ category }) => {
   const { title, imageUrl, route } = category;
   const navigate = useNavigate();
+
   const navigateTo = () => {
     navigate(route);
   };
+
   return (
-    <Card className="directory-container">
+    <Box
+      className="directory-container"
+      sx={{ width: { lg: "30%", md: "30%", sm: "45%", xs: "100%" } }}
+    >
       <Box
         className="background-image"
         style={{
@@ -17,7 +22,7 @@ const DirectoryItem = ({ category }) => {
         }}
       />
 
-      <Card className="directory-body-container">
+      <Box className="directory-body-container">
         <h2>{title}</h2>
         <Button
           variant="outlined"
@@ -32,8 +37,8 @@ const DirectoryItem = ({ category }) => {
         >
           Shop now
         </Button>
-      </Card>
-    </Card>
+      </Box>
+    </Box>
   );
 };
 

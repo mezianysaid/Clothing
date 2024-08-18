@@ -1,10 +1,19 @@
 .checkout-container {
+  flex-wrap: wrap;
   .header {
     display: flex;
     justify-content: center;
     align-items: center;
     height: 60px;
     padding-inline: 10px;
+    background-color: rgb(216, 213, 213);
+    border-top-right-radius: 20px;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
+  }
+  .pro {
+    width: 17%;
   }
   .header-block {
     font-style: italic;
@@ -13,8 +22,6 @@
   }
 
   .total-box {
-    font-style: italic;
-    font-weight: 600;
     font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
     display: flex;
     justify-content: flex-end;
@@ -25,7 +32,11 @@
       justify-content: center;
       align-items: center;
       padding-right: 2px;
-      background-color: rgb(214, 153, 153);
+      background-color: rgb(216, 213, 213);
+      border-bottom-right-radius: 20px;
+      border-bottom-left-radius: 20px;
+      font-style: italic;
+      font-weight: 800;
     }
   }
 }

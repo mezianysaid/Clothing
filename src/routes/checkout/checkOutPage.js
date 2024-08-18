@@ -9,6 +9,7 @@ import { Box, Card, Divider, Grid } from "@mui/material";
 // import DeleteIcon from "@mui/icons-material/Delete";
 import CheckOutCard from "../../components/checkout-card/checkout-card.component";
 import PaymentForm from "../../components/payment-form/payment-form.component";
+import { NoEncryption } from "@mui/icons-material";
 const CheckOutPage = () => {
   // const { cartItems, cartTotal } = useContext(CartContext);
   const cartItems = useSelector(selectCartItems);
@@ -17,9 +18,9 @@ const CheckOutPage = () => {
     <Box
       className="checkout-container"
       sx={{
-        width: { lg: "60%", md: "80%", sm: "100%", xs: "100%" },
-        marginLeft: { lg: "20%", md: "10%", sm: "2%", xs: "1%" },
-        overflowX: { xs: "scroll" },
+        width: { lg: "70%", md: "80%", sm: "100%", xs: "100%" },
+        marginLeft: { lg: "16%", md: "10%", sm: "2%", xs: "1%" },
+        overflowX: { lg: "hidden", md: "hidden", sm: "scroll", xs: "scroll" },
       }}
     >
       <Card className="header">
@@ -28,7 +29,7 @@ const CheckOutPage = () => {
           container
           justifyContent="space-between"
         >
-          <Grid className="header-block">
+          <Grid className="header-block pro">
             <span>Product</span>
           </Grid>
           <Divider orientation="vertical" flexItem />
