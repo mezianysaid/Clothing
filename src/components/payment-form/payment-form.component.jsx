@@ -29,6 +29,7 @@ const PaymentForm = () => {
     if (!stripe || !elements) {
       return;
     }
+    console.log(currentUser);
     setProcessingPayment(true);
     const response = await fetch("/.netlify/functions/create-payment-intent", {
       method: "post",
@@ -58,7 +59,6 @@ const PaymentForm = () => {
         alert("Payment successfull");
       }
     }
-    console.log(response);
   };
   return (
     <Card className="paymentBox" sx={{ p: 4, marginBlock: 3 }}>
