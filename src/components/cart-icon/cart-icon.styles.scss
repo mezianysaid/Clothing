@@ -7,14 +7,22 @@
   justify-content: center;
   cursor: pointer;
 
-  .shopping-icon {
-    width: 35px;
-    height: 35px;
-  }
-  .item-count {
-    position: absolute;
-    font-size: 15px;
-    font-weight: bold;
-    bottom: 10px;
+  .cart-button {
+    background-color: darkcyan;
+    color: black;
+    &:hover {
+      border-bottom: 4px solid darkcyan;
+      color: darkcyan;
+    }
+    .shopping-icon {
+      width: 35px;
+      height: 35px;
+    }
+    .item-count {
+      position: absolute;
+      font-size: 15px;
+      font-weight: bold;
+      bottom: 5px;
+    }
   }
 }

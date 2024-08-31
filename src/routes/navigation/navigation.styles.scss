@@ -4,6 +4,7 @@
   display: flex;
   justify-content: space-between;
   margin-bottom: 25px;
+  padding-bottom: 0%;
 
   .logo-container {
     height: 100%;
@@ -17,21 +18,26 @@
     display: flex;
     align-items: center;
     justify-content: flex-end;
-    padding-right: 10px;
-
+    padding-right: 20px;
+    padding-bottom: 0%;
     .nav-link {
       padding-right: 15px;
       cursor: pointer;
       color: black;
     }
   }
-  .links {
-    color: white;
-    background-color: black;
+  .link {
+    color: black;
     font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
-    font-weight: 500;
+    font-weight: 800;
+    text-transform: uppercase;
+    display: flex;
+    justify-content: center;
+    justify-self: center;
+    text-align: center;
+    justify-items: center;
+
     &:hover {
-      background-color: white;
       border-bottom: 4px solid darkcyan;
       color: darkcyan;
     }

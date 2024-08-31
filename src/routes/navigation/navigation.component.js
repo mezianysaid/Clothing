@@ -26,39 +26,42 @@ const NavigationBar = () => {
           </Box>
         </Link>
         <Box className="nav-links-container">
-          <Link className="nav-link " to="/shop">
-            <Button
+          <Link className="nav-link link" to="/shop">
+            {/* <Button
               size="medium"
               className="links"
               variant="contained"
               color="primary"
-            >
-              Shop
-            </Button>
+            > */}
+            <span>Shop</span>
+
+            {/* </Button> */}
           </Link>
           {currentUser ? (
             <Link
-              className="nav-link "
+              className="nav-link link"
               variant="contained"
               onClick={signOutUser}
             >
-              <Button
+              {/* <Button
                 className="links"
                 variant="contained"
                 color="primary"
                 onClick={signOutUser}
-              >
-                Sign Out
-              </Button>
+              > */}
+              Sign Out
+              {/* </Button> */}
             </Link>
           ) : (
             <Link
-              className="nav-link "
+              className="nav-link link"
               variant="contained"
               color="primary"
               to="/authentification"
             >
-              <Button className="links">Sign In</Button>
+              {/* <Button className="links"> */}
+              Sign In
+              {/* </Button> */}
             </Link>
           )}
           {/* <Button variant="outlined" className="links"> */}
