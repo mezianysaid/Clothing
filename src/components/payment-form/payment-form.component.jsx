@@ -23,46 +23,43 @@ const PaymentForm = () => {
   const currentUser = useSelector(selectCurrentUser);
   const [processingPayment, setProcessingPayment] = useState(false);
 
-  // const paymentHandler = async (e) => {
-  //   e.preventDefault();
+  const paymentHandler = async (e) => {
+    e.preventDefault();
 
-  //   if (!stripe || !elements) {
-  //     return;
-  //   }
-  //   setProcessingPayment(true);
-  //   const response = await fetch(
-  //     '/.netlify/functions/create-payment-intent',
-  //     {
-  //       method: "post",
-  //       headers: {
-  //         "Content-Type": "application/json",
-  //       },
-  //       body: JSON.stringify({ amount: amount * 100 }),
-  //     }
-  //   ).then((res) => res.json());
+    if (!stripe || !elements) {
+      return;
+    }
+    setProcessingPayment(true);
+    const response = await fetch("/.netlify/functions/create-payment-intent", {
+      method: "post",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ amount: amount * 100 }),
+    }).then((res) => res.json());
 
-  //   const {
-  //     paymentIntent: { client_secret },
-  //   } = response;
+    const {
+      paymentIntent: { client_secret },
+    } = response;
 
-  //   const paymentResult = await stripe.confirmCardPayment(client_secret, {
-  //     payment_method: {
-  //       card: elements.getElement(CardElement),
-  //       billing_details: {
-  //         name: currentUser ? currentUser.displayName : "Guest",
-  //       },
-  //     },
-  //   });
-  //   setProcessingPayment(false);
-  //   if (paymentResult.error) {
-  //     alert(paymentResult.error);
-  //   } else {
-  //     if (paymentResult.paymentIntent.status === "succeeded") {
-  //       alert("Payment successfull");
-  //     }
-  //   }
-  //   console.log(response);
-  // };
+    const paymentResult = await stripe.confirmCardPayment(client_secret, {
+      payment_method: {
+        card: elements.getElement(CardElement),
+        billing_details: {
+          name: currentUser ? currentUser.displayName : "Guest",
+        },
+      },
+    });
+    setProcessingPayment(false);
+    if (paymentResult.error) {
+      alert(paymentResult.error);
+    } else {
+      if (paymentResult.paymentIntent.status === "succeeded") {
+        alert("Payment successfull");
+      }
+    }
+    console.log(response);
+  };
   return (
     <Card className="paymentBox" sx={{ p: 4, marginBlock: 3 }}>
       <h3>Credit Card Payment:</h3>
@@ -70,7 +67,7 @@ const PaymentForm = () => {
       <Box
         component="form"
         fullWidth
-        // onSubmit={paymentHandler}
+        onSubmit={paymentHandler}
         autoComplete="off"
       >
         {/* <Box
