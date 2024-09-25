@@ -5,7 +5,7 @@ import { getCategoriesAndDocuments } from "../../utils/firebase/firebase.utils";
 const CATEGORIES_INITIALE_STATE = {
   categories: [],
   isLoading: false,
-  error: null,
+  errorr: null,
 };
 
 export const categoriesSlice = createSlice({
@@ -20,13 +20,14 @@ export const categoriesSlice = createSlice({
       state.isLoading = true;
     },
     setError(state, action) {
-      state.error = action.payload;
+      state.errorr = action.payload;
     },
   },
 });
 // *************************************************************
 export const fetchCategoriesAsync = () => async (dispatch) => {
   dispatch(setIsLoading());
+
   try {
     const categoryMap = await getCategoriesAndDocuments("categoriesds");
     dispatch(setCategories(categoryMap));

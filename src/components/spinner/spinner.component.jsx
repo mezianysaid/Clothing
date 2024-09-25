@@ -6,7 +6,10 @@ import "./spinner.styles.scss";
 const Spinner = () => {
   return (
     <>
-      <Box sx={{ display: "flex", justifyContent: "center" }}>
+      <Box
+        data-testid="spinnerOverly"
+        sx={{ display: "flex", justifyContent: "center" }}
+      >
         <span style={{ color: "gray" }}>Loading data ........</span>
         <CircularProgress size={180} sx={{ color: "gray" }} />
       </Box>

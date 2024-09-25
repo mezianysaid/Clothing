@@ -1,7 +1,7 @@
-import React from "react";
+import React, { memo } from "react";
 import "./cart-item.styles.scss";
 import { Box } from "@mui/material";
-const CartItem = ({ cartItem }) => {
+const CartItem = memo(({ cartItem }) => {
   const { name, imageUrl, price, quantity } = cartItem;
   return (
     <Box className="cart-item-container">
@@ -14,6 +14,6 @@ const CartItem = ({ cartItem }) => {
       </Box>
     </Box>
   );
-};
+});
 
 export default CartItem;

@@ -14,15 +14,16 @@ const CategoryPreview = ({ title, products }) => {
             pr: 5,
             pl: 5,
             marginLeft: 3,
-            fontFamily: "cursive",
-            fontSize: 20,
+            fontFamily: "fantasy",
+            fontSize: 16,
             width: 200,
-            height: 60,
+            height: 40,
             display: "flex",
             justifyContent: "center",
             alignItems: "center",
             borderTopRightRadius: 50,
-            borderBottomRightRadius: 50,
+            borderBottomRightRadius: 0,
+            letterSpacing: 2,
           }}
         >
           <Link to={title}>
@@ -44,7 +45,7 @@ const CategoryPreview = ({ title, products }) => {
                   md={4}
                   sm={6}
                   xs={12}
-                  style={{ height: 350 }}
+                  style={{ minHeight: 350 }}
                   key={product.id}
                 >
                   <ProductCard key={product.id} product={product} />

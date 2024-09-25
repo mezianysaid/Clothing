@@ -1,9 +1,9 @@
-import React from "react";
+import React, { memo } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
 import { Box, Card, Grid, IconButton } from "@mui/material";
 import { AddCircle, RemoveCircle, DeleteForever } from "@mui/icons-material";
-import PaymentForm from "../payment-form/payment-form.component";
+// import PaymentForm from "../payment-form/payment-form.component";
 import {
   addItemToCart,
   DecrementItemFromCart,
@@ -13,7 +13,7 @@ import {
 
 import "./checkout-card.styles.scss";
 
-const CheckOutCard = ({ item }) => {
+const CheckOutCard = memo(({ item }) => {
   const { id, name, imageUrl, quantity, price } = item;
   const dispatch = useDispatch();
   // const cartItems = useSelector(selectCartItems);
@@ -58,6 +58,6 @@ const CheckOutCard = ({ item }) => {
       </Grid>
     </Card>
   );
-};
+});
 
 export default CheckOutCard;

@@ -10,9 +10,10 @@
   .cart-button {
     background-color: darkcyan;
     color: black;
+    border-radius: 10px;
     &:hover {
-      border-bottom: 4px solid darkcyan;
-      color: darkcyan;
+      border-bottom: 4px solid black;
+      color: black;
     }
     .shopping-icon {
       width: 35px;

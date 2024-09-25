@@ -2,7 +2,6 @@ import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 // import { CategoriesContext } from "../../contexts/categories.context";
 import { useSelector } from "react-redux";
-
 import { selectCategoriesMap } from "../../store/categories/category.selector";
 import { selectCategoriesIsLoading } from "../../store/categories/category.selector";
 
@@ -29,14 +28,14 @@ const Category = () => {
           pl: 5,
           marginLeft: 3,
           fontFamily: "cursive",
-          fontSize: 20,
+          fontSize: 16,
           width: 200,
-          height: 60,
+          height: 40,
           display: "flex",
           justifyContent: "center",
           alignItems: "center",
           borderTopRightRadius: 50,
-          borderBottomRightRadius: 50,
+          borderBottomRightRadius: 0,
         }}
       >
         <h2>{category && category.toUpperCase()}</h2>

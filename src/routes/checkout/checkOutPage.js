@@ -1,4 +1,5 @@
-import React from "react";
+import { useEffect, useState } from "react";
+
 import { useSelector } from "react-redux";
 import {
   selectCartTotal,
@@ -9,11 +10,12 @@ import { Box, Card, Divider, Grid } from "@mui/material";
 // import DeleteIcon from "@mui/icons-material/Delete";
 import CheckOutCard from "../../components/checkout-card/checkout-card.component";
 import PaymentForm from "../../components/payment-form/payment-form.component";
-import { NoEncryption } from "@mui/icons-material";
+
 const CheckOutPage = () => {
   // const { cartItems, cartTotal } = useContext(CartContext);
   const cartItems = useSelector(selectCartItems);
   const cartTotal = useSelector(selectCartTotal);
+
   return (
     <Box
       className="checkout-container"

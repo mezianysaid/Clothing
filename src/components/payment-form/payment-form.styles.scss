@@ -15,4 +15,16 @@
   .cardEl {
     height: 20px;
   }
+  .cardControl {
+    height: 3rem;
+    background-color: rgb(232, 235, 235);
+    display: flex;
+    justify-content: center;
+    justify-items: center;
+
+    border: groove;
+    border-radius: 20px;
+    padding: 5px;
+    margin-top: 5px;
+  }
 }

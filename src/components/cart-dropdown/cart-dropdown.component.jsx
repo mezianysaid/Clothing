@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useCallback } from "react";
 import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 
@@ -14,9 +14,9 @@ const CartDropdown = () => {
   const cartItems = useSelector(selectCartItems);
 
   const navigate = useNavigate();
-  const goToCheckoutPage = () => {
+  const goToCheckoutPage = useCallback(() => {
     navigate("/checkout");
-  };
+  }, []);
   return (
     <Card className="cart-dropdown-container">
       <Box className="cart-items">
@@ -35,7 +35,9 @@ const CartDropdown = () => {
               pt: 10,
             }}
           >
-            <span style={{ color: "gray" }}>Your cart is empty</span>
+            <span style={{ color: "gray" }} data-testid="dropdownEmptytext">
+              Your cart is empty
+            </span>
           </Box>
         )}
       </Box>

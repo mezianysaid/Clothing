@@ -1,10 +1,26 @@
-import { useState } from "react";
+import { useEffect, useState, useMemo } from "react";
 import { useSelector } from "react-redux";
 import { selectCartTotal } from "../../store/cart/cart.selector";
 import { selectCurrentUser } from "../../store/user/user.selector";
-import { CardElement, useStripe, useElements } from "@stripe/react-stripe-js";
+import {
+  CardElement,
+  useStripe,
+  useElements,
+  CardCvcElement,
+  CardNumberElement,
+  CardExpiryElement,
+} from "@stripe/react-stripe-js";
 
-import { Button, Box, Card, Alert, Divider } from "@mui/material";
+import {
+  Button,
+  Box,
+  Card,
+  Alert,
+  Divider,
+  TextField,
+  FormControl,
+  Input,
+} from "@mui/material";
 import CircularProgress from "@mui/material/CircularProgress";
 import "./payment-form.styles.scss";
 
@@ -29,7 +45,7 @@ const PaymentForm = () => {
     if (!stripe || !elements) {
       return;
     }
-    console.log(currentUser);
+    // console.log(currentUser);
     setProcessingPayment(true);
     const response = await fetch("/.netlify/functions/create-payment-intent", {
       method: "post",
@@ -42,7 +58,7 @@ const PaymentForm = () => {
     const {
       paymentIntent: { client_secret },
     } = response;
-
+    // setClientSecretKey(client_secret);
     const paymentResult = await stripe.confirmCardPayment(client_secret, {
       payment_method: {
         card: elements.getElement(CardElement),
@@ -60,23 +76,22 @@ const PaymentForm = () => {
       }
     }
   };
+
   return (
     <Card className="paymentBox" sx={{ p: 4, marginBlock: 3 }}>
       <h3>Credit Card Payment:</h3>
       <Divider />
+      {/* <Elements stripe={stripePromise} options={{ clientSecretKey }}> */}
       <Box
         component="form"
         fullWidth
         onSubmit={paymentHandler}
         autoComplete="off"
       >
-        {/* <Box
-          sx={{
-            padding: 2,
-          }}
-        > */}
-        <CardElement />
-        {/* </Box> */}
+        <FormControl fullWidth className="cardControl">
+          <CardElement></CardElement>
+        </FormControl>
+
         <Box
           sx={{
             padding: 2,
@@ -89,6 +104,7 @@ const PaymentForm = () => {
           </Button>
         </Box>
       </Box>
+      {/* </Elements> */}
     </Card>
   );
 };

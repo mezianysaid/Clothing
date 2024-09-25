@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@apollo/client": "^3.11.5",
     "@emotion/react": "^11.11.4",
     "@emotion/styled": "^11.11.5",
     "@mui/icons-material": "^5.16.0",
@@ -11,11 +12,12 @@
     "@stripe/react-stripe-js": "^2.7.3",
     "@stripe/stripe-js": "^4.2.0",
     "@testing-library/jest-dom": "^5.17.0",
-    "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
+    "@yext/search-ui-react": "^1.7.0-beta.8",
     "axios": "^1.7.2",
     "dotenv": "^16.4.5",
     "firebase": "^10.12.2",
+    "graphql": "^16.9.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-redux": "^9.1.2",
@@ -30,11 +32,23 @@
     "sass": "^1.77.6",
     "stripe": "^16.7.0",
     "styled-components": "^6.1.11",
-    "web-vitals": "^2.1.4"
+    "web-vitals": "^2.1.4",
+    "workbox-background-sync": "^7.1.0",
+    "workbox-broadcast-update": "^7.1.0",
+    "workbox-cacheable-response": "^7.1.0",
+    "workbox-core": "^7.1.0",
+    "workbox-expiration": "^7.1.0",
+    "workbox-google-analytics": "^7.1.0",
+    "workbox-navigation-preload": "^7.1.0",
+    "workbox-precaching": "^7.1.0",
+    "workbox-range-requests": "^7.1.0",
+    "workbox-routing": "^7.1.0",
+    "workbox-strategies": "^7.1.0",
+    "workbox-streams": "^7.1.0"
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
+    "build": "react-scripts build webpack --mode production",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
@@ -55,5 +69,20 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@babel/core": "^7.25.2",
+    "@babel/preset-env": "^7.25.4",
+    "@babel/preset-react": "^7.24.7",
+    "@testing-library/dom": "^10.4.0",
+    "@testing-library/react": "^16.0.1",
+    "babel-loader": "^9.2.1",
+    "css-loader": "^7.1.2",
+    "html-loader": "^5.1.0",
+    "html-webpack-plugin": "^5.6.0",
+    "sass-loader": "^16.0.2",
+    "style-loader": "^4.0.0",
+    "webpack": "^5.94.0",
+    "webpack-cli": "^5.1.4"
   }
 }
